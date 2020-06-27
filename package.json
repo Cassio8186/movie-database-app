@@ -1,0 +1,74 @@
+{
+	"name": "movie-database",
+	"version": "1.0.0",
+	"private": true,
+	"author": {
+		"name": "cassio8186",
+		"email": "cassio8186@gmail.com"
+	},
+	"scripts": {
+		"dev": "vue-cli-service serve --open",
+		"build": "vue-cli-service build",
+		"lint": "vue-cli-service lint",
+		"docker:build": "docker build -t cassio8186/movie-database .",
+		"docker:run": "docker run --rm -it -p 8080:80 -e PORT=80 cassio8186/movie-database:latest",
+		"docker:publish": "docker push cassio8186/movie-database",
+		"heroku:deploy": "heroku container:push web && heroku container:release web && heroku open"
+	},
+	"main": "src/index.js",
+	"dependencies": {
+		"@leonardocabeza/the-movie-db": "^4.0.8",
+		"bootstrap-vue": "^2.15.0",
+		"core-js": "^3.6.5",
+		"moment": "^2.27.0",
+		"register-service-worker": "^1.7.1",
+		"vue": "^2.6.11",
+		"vue-infinite-scroll": "^2.0.2",
+		"vue-router": "^3.2.0",
+		"vuex": "^3.4.0"
+	},
+	"devDependencies": {
+		"@babel/polyfill": "^7.7.0",
+		"@vue/cli-plugin-babel": "~4.4.0",
+		"@vue/cli-plugin-eslint": "~4.4.0",
+		"@vue/cli-plugin-pwa": "~4.4.0",
+		"@vue/cli-plugin-router": "~4.4.0",
+		"@vue/cli-plugin-vuex": "~4.4.0",
+		"@vue/cli-service": "~4.4.0",
+		"@vue/eslint-config-prettier": "^6.0.0",
+		"babel-eslint": "^10.1.0",
+		"bootstrap": "^4.3.1",
+		"eslint": "^6.7.2",
+		"eslint-plugin-prettier": "^3.1.3",
+		"eslint-plugin-vue": "^6.2.2",
+		"lint-staged": "^9.5.0",
+		"mutationobserver-shim": "^0.3.3",
+		"popper.js": "^1.16.0",
+		"portal-vue": "^2.1.6",
+		"prettier": "^1.19.1",
+		"sass": "^1.19.0",
+		"sass-loader": "^8.0.0",
+		"vue-cli-plugin-bootstrap-vue": "~0.6.0",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"_id": "movie-database@1.0.0",
+	"bugs": {
+		"url": "https://github.com/Cassio8186/movie-data-app/issues"
+	},
+	"gitHooks": {
+		"pre-commit": "lint-staged"
+	},
+	"homepage": "https://github.com/Cassio8186/movie-data-app#readme",
+	"license": "MIT",
+	"lint-staged": {
+		"*.{js,jsx,vue}": [
+			"vue-cli-service lint",
+			"git add"
+		]
+	},
+	"readme": "ERROR: No README data found!",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/Cassio8186/movie-data-app.git"
+	}
+}
