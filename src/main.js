@@ -15,6 +15,10 @@ Vue.use(infiniteScroll);
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
+process.env.NODE_ENV === "production"
+	? (Vue.config.productionTip = false)
+	: (Vue.config.productionTip = true);
+
 Vue.config.productionTip = false;
 
 new Vue({

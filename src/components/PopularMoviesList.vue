@@ -13,26 +13,13 @@ export default {
 		...mapState("movieData", ["popularMoviesData", "popularMovies"])
 	},
 	components: { MovieList },
-	data: () => ({
-		loadingMore: false
-	}),
+
 	methods: {
 		...mapActions("movieData", ["getMovieData", "getPopularMovies"]),
 		async loadMore() {
-			if (
-				this.loadingMore == false &&
-				this.popularMoviesData.page !== undefined &&
-				this.popularMoviesData.nextPage !== 1
-			) {
-				this.loadingMore = true;
-				const nextPage = this.popularMoviesData.nextPage;
-				await this.getPopularMovies(nextPage);
-				this.loadingMore = false;
-			}
+			const nextPage = this.popularMoviesData.nextPage;
+			await this.getPopularMovies(nextPage);
 		}
-	},
-	created() {
-		this.getMovieData();
 	}
 };
 </script>

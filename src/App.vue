@@ -15,8 +15,16 @@
 	</div>
 </template>
 <script>
+import { mapActions, mapState } from "vuex";
 export default {
-	name: "App"
+	name: "App",
+	computed: { ...mapState("movieData", ["popularMovies", "genres"]) },
+	methods: { ...mapActions("movieData", ["getMoviesGenres"]) },
+	created() {
+		if (this.genres.length == 0) {
+			this.getMoviesGenres();
+		}
+	}
 };
 </script>
 <style>

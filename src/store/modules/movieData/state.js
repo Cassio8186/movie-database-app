@@ -6,6 +6,7 @@ export default {
 		total_pages: null,
 		total_results: null
 	},
+	loadingMoreMovies: false,
 	popularMovies: [],
 	genres: [],
 	error: false,

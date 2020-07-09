@@ -7,7 +7,7 @@
 				v-if="movie.poster_path"
 				:src="`https://image.tmdb.org/t/p/w500/${movie.poster_path}`"
 			/>
-			<ImageNotFound v-else :width="'auto'" :height="'400px'" />
+			<ImageNotFound v-else :width="'100%'" :height="'400px'" />
 		</b-link>
 
 		<div class="card-body d-flex flex-column p-2">

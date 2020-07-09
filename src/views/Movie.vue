@@ -5,16 +5,17 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 import MovieDetails from "../components/MovieDetails.vue";
+
 export default {
 	name: "Movie",
 	components: { MovieDetails },
 	computed: {
+		...mapState("movieData", ["genres"]),
 		id() {
 			return this.$route.params.id;
 		},
-		...mapState("movieData", ["popularMovies", "genres"]),
 		movie() {
 			const movieData = this.popularMovies;
 			if (movieData) {
@@ -24,12 +25,6 @@ export default {
 			} else {
 				return false;
 			}
-		}
-	},
-	methods: { ...mapActions("movieData", ["getMoviesGenres"]) },
-	created() {
-		if (this.genres.length == 0) {
-			this.getMoviesGenres();
 		}
 	}
 };
